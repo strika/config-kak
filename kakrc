@@ -16,7 +16,15 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
     set-option global indentwidth 2
 } config %{
     # These languages will use `expandtab' behavior.
-    hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|sh|ruby) expandtab
+    hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|janet|sh|ruby) expandtab
+}
+
+plug "eraserhd/parinfer-rust" do %{
+    cargo install --force --path .
+} config %{
+    hook global WinSetOption filetype=(clojure|lisp|scheme|racket|janet) %{
+        parinfer-enable-window -smart
+    }
 }
 
 add-highlighter global/ number-lines -relative
