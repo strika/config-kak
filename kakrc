@@ -33,6 +33,12 @@ map global normal <tab> l
 # Remove trailing whitespace.
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 
+# JavaScript
 hook global BufCreate .+\.(es6) %{
     set-option buffer filetype javascript
+}
+
+# Ruby
+hook global WinSetOption filetype=ruby %{
+    set-option window lintcmd 'rubocop --config .rubocop.yml'
 }
