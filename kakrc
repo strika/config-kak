@@ -42,3 +42,8 @@ hook global BufCreate .+\.(es6) %{
 hook global WinSetOption filetype=ruby %{
     set-option window lintcmd 'rubocop --config .rubocop.yml'
 }
+
+# HTML and ERB
+hook global WinSetOption filetype=(html|eruby) %{
+    set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces 2 --wrap 1000 2>/dev/null || true; } && run"
+}
