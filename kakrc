@@ -34,13 +34,16 @@ map global normal <tab> l
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 
 # Lint
-hook global BufWritePost .+\.(rb) %{
+hook global BufWritePost .+\.(rb|js|es6) %{
     lint
 }
 
 # JavaScript
 hook global BufCreate .+\.(es6) %{
     set-option buffer filetype javascript
+}
+hook global WinSetOption filetype=javascript %{
+    set-option window lintcmd 'run() { cat "$1" | eslint -f unix --stdin --stdin-filename "$kak_buffile";} && run '
 }
 
 # Ruby
