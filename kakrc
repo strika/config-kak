@@ -33,6 +33,11 @@ map global normal <tab> l
 # Remove trailing whitespace.
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 
+# Lint
+hook global BufWritePost .+\.(rb) %{
+    lint
+}
+
 # JavaScript
 hook global BufCreate .+\.(es6) %{
     set-option buffer filetype javascript
