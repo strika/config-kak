@@ -2,6 +2,16 @@
 
 This is my configuration for [Kakoune](http://kakoune.org/) editor.
 
+## Dependencies
+
+- Rust
+
+On Ubuntu, install dependencies with:
+
+```bash
+sudo apt install rustc
+```
+
 ## Setup
 
 Clone this repository to `~/.config/kak`:
