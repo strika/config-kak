@@ -33,9 +33,9 @@ add-highlighter global/ number-lines -relative
 # map global normal <space> , -docstring "leader"
 
 # Easier navigation for Colemak keyboard layout.
-map global normal <c-n> h
-map global normal <c-e> j
-map global normal <c-u> k
+map global normal <backspace> h
+map global normal <c-n> j
+map global normal <c-e> k
 map global normal <tab> l
 
 # Remove trailing whitespace.
