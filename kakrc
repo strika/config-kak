@@ -45,6 +45,9 @@ map global normal <c-n> j
 map global normal <c-e> k
 map global normal <tab> l
 
+# Always keep one line and three columns displayed around the cursor.
+set-option global scrolloff 1,3
+
 # Plan management utilities
 map global user t "<a-h>;f[lcX<esc>" -docstring "Complete task"
 map global user T "<a-h>;f[lc <esc>" -docstring "Uncomplete task"
