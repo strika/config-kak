@@ -29,14 +29,15 @@ plug "eraserhd/parinfer-rust" do %{
 
 add-highlighter global/ number-lines -relative
 
-# Map leader to <space>
-# map global normal <space> , -docstring "leader"
-
 # Easier navigation for Colemak keyboard layout.
 map global normal <backspace> h
 map global normal <c-n> j
 map global normal <c-e> k
 map global normal <tab> l
+
+# Plan management utilities
+map global user t "<a-h>;f[lcX<esc>" -docstring "Complete task"
+map global user u "<a-h>;f[lc <esc>" -docstring "Uncomplete task"
 
 # Remove trailing whitespace.
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
