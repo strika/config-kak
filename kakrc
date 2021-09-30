@@ -27,7 +27,9 @@ plug "eraserhd/parinfer-rust" do %{
     }
 }
 
+# Highlighters
 add-highlighter global/ number-lines -relative
+add-highlighter global/ column 80 default,black
 
 # Easier navigation for Colemak keyboard layout.
 map global normal <backspace> h
