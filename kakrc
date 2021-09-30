@@ -27,6 +27,14 @@ plug "eraserhd/parinfer-rust" do %{
     }
 }
 
+plug "kkga/ui.kak" config %{
+    map global user -docstring "UI mode" u ": enter-user-mode ui<ret>"
+    hook global WinCreate .* %{
+        ui-matching-toggle
+        ui-search-toggle
+    }
+}
+
 # Highlighters
 add-highlighter global/ number-lines -relative
 add-highlighter global/ column 80 default,black
@@ -39,7 +47,7 @@ map global normal <tab> l
 
 # Plan management utilities
 map global user t "<a-h>;f[lcX<esc>" -docstring "Complete task"
-map global user u "<a-h>;f[lc <esc>" -docstring "Uncomplete task"
+map global user T "<a-h>;f[lc <esc>" -docstring "Uncomplete task"
 
 # Remove trailing whitespace.
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
