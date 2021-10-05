@@ -64,6 +64,10 @@ hook global NormalKey y|d|c %{ nop %sh{
     fi
 }}
 
+# Paste from the system clipboard
+map global user P "!xsel --output --clipboard<ret>" -docstring "Paste before"
+map global user p "<a-!>xsel --output --clipboard<ret>" -docstring "Paste after"
+
 # Lint
 hook global BufWritePost .+\.(rb|js|es6) %{
     lint
