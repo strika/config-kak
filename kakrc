@@ -52,8 +52,17 @@ set-option global scrolloff 1,3
 map global user t "<a-h>;f[lcX<esc>" -docstring "Complete task"
 map global user T "<a-h>;f[lc <esc>" -docstring "Uncomplete task"
 
-# Remove trailing whitespace.
+# Remove trailing whitespace
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
+
+# Copy to the system clipboard
+hook global NormalKey y|d|c %{ nop %sh{
+    if [ -n "$DISPLAY" ]; then
+        printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+    elif [ -n "$TMUX" ]; then
+        tmux set-buffer -- "$kak_main_reg_dquote"
+    fi
+}}
 
 # Lint
 hook global BufWritePost .+\.(rb|js|es6) %{
