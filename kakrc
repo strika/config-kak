@@ -73,6 +73,22 @@ hook global BufWritePost .+\.(rb|js|es6) %{
     lint
 }
 
+# Tags
+hook global KakBegin .* %{
+    evaluate-commands %sh{
+        path="$PWD"
+        while [ "$path" != "$HOME" ] && [ "$path" != "/" ]; do
+            if [ -e "./tags" ]; then
+                printf "%s\n" "set-option -add current ctagsfiles %{$path/tags}"
+                break
+            else
+                cd ..
+                path="$PWD"
+            fi
+        done
+    }
+}
+
 # JavaScript
 hook global BufCreate .+\.(es6) %{
     set-option buffer filetype javascript
