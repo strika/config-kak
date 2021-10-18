@@ -41,6 +41,7 @@ add-highlighter global/ column 80 default,black
 
 # Easier navigation for Colemak keyboard layout.
 map global normal <backspace> h
+map global normal <c-h> h
 map global normal <c-n> j
 map global normal <c-e> k
 map global normal <tab> l
