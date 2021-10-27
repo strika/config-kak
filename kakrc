@@ -16,7 +16,7 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
     set-option global indentwidth 2
 } config %{
     # These languages will use `expandtab' behavior.
-    hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|janet|sh|ruby) expandtab
+    hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|janet|sh|ruby|html|eruby) expandtab
 }
 
 plug "eraserhd/parinfer-rust" do %{
@@ -111,6 +111,6 @@ hook global WinSetOption filetype=ruby %{
 
 # HTML and ERB
 hook global WinSetOption filetype=(html|eruby) %{
-    set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces 2 --wrap 1000 2>/dev/null || true; } && run"
+    set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces 2 --wrap 1000 --show-body-only true 2>/dev/null || true; } && run"
     set-option window autowrap_column 80
 }
