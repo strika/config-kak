@@ -46,6 +46,9 @@ map global normal <c-n> j
 map global normal <c-e> k
 map global normal <tab> l
 
+# Format selection with =
+map global normal = '|fmt -w $kak_opt_autowrap_column<ret>'
+
 # Always keep one line and three columns displayed around the cursor.
 set-option global scrolloff 1,3
 
@@ -109,4 +112,5 @@ hook global WinSetOption filetype=ruby %{
 # HTML and ERB
 hook global WinSetOption filetype=(html|eruby) %{
     set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces 2 --wrap 1000 2>/dev/null || true; } && run"
+    set-option window autowrap_column 80
 }
