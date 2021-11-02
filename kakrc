@@ -5,7 +5,7 @@ plug "andreyorst/plug.kak" noload
 plug "godlygeek/tabular"
 
 plug "andreyorst/fzf.kak" config %{
-    map global normal <c-p> ': fzf-mode<ret>'
+    map global normal <c-p> ": fzf-mode<ret>"
 } defer "fzf" %{
     set-option global fzf_use_main_selection false
 } defer "fzf-file" %{
@@ -41,6 +41,9 @@ plug "kkga/ui.kak" config %{
 add-highlighter global/ number-lines -relative
 add-highlighter global/ column 80 default,black
 
+# Always keep one line and three columns displayed around the cursor.
+set-option global scrolloff 1,3
+
 # Easier navigation for Colemak keyboard layout.
 map global normal <backspace> h
 map global normal <c-h> h
@@ -49,13 +52,13 @@ map global normal <c-e> k
 map global normal <tab> l
 
 # Format selection with =
-map global normal = '|fmt -w $kak_opt_autowrap_column<ret>'
+map global normal = "|fmt -w $kak_opt_autowrap_column<ret>"
 
-# Always keep one line and three columns displayed around the cursor.
-set-option global scrolloff 1,3
+# Delete all unmodified buffers
+map global user d ": evaluate-commands -buffer * delete-buffer<ret>" -docstring "Delete all buffers"
 
 # Toggle comments
-map global user c ":comment-line<ret>" -docstring "Toggle comments"
+map global user c ": comment-line<ret>" -docstring "Toggle comments"
 
 # Plan management utilities
 map global user t "<a-h>;f[lcX<esc>" -docstring "Complete task"
