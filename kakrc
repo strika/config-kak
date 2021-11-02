@@ -6,6 +6,8 @@ plug "godlygeek/tabular"
 
 plug "andreyorst/fzf.kak" config %{
     map global normal <c-p> ': fzf-mode<ret>'
+} defer "fzf" %{
+    set-option global fzf_use_main_selection false
 } defer "fzf-file" %{
     set-option global fzf_file_command "find . \( -path './.*' -o -path './build*' \) -prune -false -o -type f -print"
 }
