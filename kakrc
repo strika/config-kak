@@ -54,6 +54,12 @@ map global normal <tab> l
 # Format selection with =
 map global normal = "|fmt -w $kak_opt_autowrap_column<ret>"
 
+# Split horizontally
+define-command -docstring "split [<commands>]: split tmux horizontally" \
+split -params .. -command-completion %{
+      tmux-terminal-vertical kak -c %val{session} -e "%arg{@}"
+}
+
 # Delete all unmodified buffers
 map global user d ": evaluate-commands -buffer * delete-buffer<ret>" -docstring "Delete all buffers"
 
