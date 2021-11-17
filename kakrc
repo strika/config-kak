@@ -37,6 +37,10 @@ plug "kkga/ui.kak" config %{
     }
 }
 
+plug "TeddyDD/kakoune-wiki" config %{
+  wiki-setup %sh{ echo $HOME/wiki }
+}
+
 # Highlighters
 add-highlighter global/ number-lines -relative
 add-highlighter global/ column 80 default,black
