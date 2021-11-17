@@ -70,10 +70,6 @@ map global user d ": evaluate-commands -buffer * delete-buffer<ret>" -docstring 
 # Toggle comments
 map global user c ": comment-line<ret>" -docstring "Toggle comments"
 
-# Plan management utilities
-map global user t "<a-h>;f[lcX<esc>" -docstring "Complete task"
-map global user T "<a-h>;f[lc <esc>" -docstring "Uncomplete task"
-
 # Remove trailing whitespace
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 
