@@ -2,8 +2,6 @@ source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
 plug "andreyorst/plug.kak" noload
 
-plug "godlygeek/tabular"
-
 plug "andreyorst/fzf.kak" config %{
     map global normal <c-p> ": fzf-mode<ret>"
 } defer "fzf" %{
@@ -28,6 +26,8 @@ plug "eraserhd/parinfer-rust" do %{
         parinfer-enable-window -smart
     }
 }
+
+plug "godlygeek/tabular"
 
 plug "kkga/ui.kak" config %{
     map global user -docstring "UI mode" u ": enter-user-mode ui<ret>"
@@ -74,7 +74,7 @@ map global user c ": comment-line<ret>" -docstring "Toggle comments"
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 
 # Copy to the system clipboard
-hook global NormalKey y|d|c %{ nop %sh{
+hook global NormalKey y %{ nop %sh{
     if [ -n "$DISPLAY" ]; then
         printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
     elif [ -n "$TMUX" ]; then
