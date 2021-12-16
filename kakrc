@@ -37,6 +37,15 @@ plug "kkga/ui.kak" config %{
     }
 }
 
+plug "occivink/kakoune-expand" config %{
+  map -docstring "expand" global user e ": expand<ret>"
+
+  # 'lock' mapping where pressing <space> repeatedly will expand the selection
+  declare-user-mode expand
+  map -docstring "expand" global expand <space> ": expand<ret>"
+  map -docstring "expand ↻" global user E       ": expand; enter-user-mode -lock expand<ret>"
+}
+
 plug "TeddyDD/kakoune-wiki" config %{
   wiki-setup %sh{ echo $HOME/wiki }
 }
