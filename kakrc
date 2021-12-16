@@ -46,6 +46,12 @@ plug "occivink/kakoune-expand" config %{
   map -docstring "expand ↻" global user E       ": expand; enter-user-mode -lock expand<ret>"
 }
 
+plug "occivink/kakoune-vertical-selection" config %{
+  map global user v     ": vertical-selection-down<ret>"
+  map global user <a-v> ": vertical-selection-up<ret>"
+  map global user V     ": vertical-selection-up-and-down<ret>"
+}
+
 plug "TeddyDD/kakoune-wiki" config %{
   wiki-setup %sh{ echo $HOME/wiki }
 }
@@ -121,7 +127,7 @@ hook global BufCreate .+\.(es6) %{
     set-option buffer filetype javascript
 }
 hook global WinSetOption filetype=javascript %{
-    set-option window lintcmd 'run() { cat "$1" | eslint -f unix --stdin --stdin-filename "$kak_buffile";} && run '
+set-option window lintcmd 'run() { cat "$1" | eslint -f unix --stdin --stdin-filename "$kak_buffile";} && run '
 }
 
 # Ruby
