@@ -38,18 +38,18 @@ plug "kkga/ui.kak" config %{
 }
 
 plug "occivink/kakoune-expand" config %{
-  map -docstring "expand" global user e ": expand<ret>"
+  map global user e ": expand<ret>" -docstring "expand"
 
   # 'lock' mapping where pressing <space> repeatedly will expand the selection
   declare-user-mode expand
-  map -docstring "expand" global expand <space> ": expand<ret>"
-  map -docstring "expand ↻" global user E       ": expand; enter-user-mode -lock expand<ret>"
+  map global expand <space> ": expand<ret>" -docstring "expand"
+  map global user E ": expand; enter-user-mode -lock expand<ret>" -docstring "expand ↻"
 }
 
 plug "occivink/kakoune-vertical-selection" config %{
-  map global user v     ": vertical-selection-down<ret>"
-  map global user <a-v> ": vertical-selection-up<ret>"
-  map global user V     ": vertical-selection-up-and-down<ret>"
+  map global user v     ": vertical-selection-down<ret>"        -docstring "Select down"
+  map global user <a-v> ": vertical-selection-up<ret>"          -docstring "Select up"
+  map global user V     ": vertical-selection-up-and-down<ret>" -docstring "Select up and down"
 }
 
 plug "TeddyDD/kakoune-wiki" config %{
