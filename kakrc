@@ -46,6 +46,8 @@ plug "occivink/kakoune-expand" config %{
   map global user E ": expand; enter-user-mode -lock expand<ret>" -docstring "expand ↻"
 }
 
+plug "occivink/kakoune-snippets"
+
 plug "occivink/kakoune-vertical-selection" config %{
   map global user v     ": vertical-selection-down<ret>"        -docstring "Select down"
   map global user <a-v> ": vertical-selection-up<ret>"          -docstring "Select up"
