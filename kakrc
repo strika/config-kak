@@ -46,7 +46,7 @@ plug "occivink/kakoune-expand" config %{
   map global user E ": expand; enter-user-mode -lock expand<ret>" -docstring "expand ↻"
 }
 
-plug "occivink/kakoune-snippets" config %{
+plug "occivink/kakoune-snippets" defer %{
   set-option global shippets_auto_expand true
 }
 
