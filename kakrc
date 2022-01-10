@@ -144,8 +144,3 @@ hook global WinSetOption filetype=(html|eruby) %{
     set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces 2 --wrap 1000 --show-body-only true 2>/dev/null || true; } && run"
     set-option window autowrap_column 80
 }
-
-# Spellcheck
-hook global BufWritePost .+\.(txt|md|feature) %{
-  spell en
-}
