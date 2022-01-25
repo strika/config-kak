@@ -74,6 +74,10 @@ map global normal <c-n> j
 map global normal <c-e> k
 map global normal <tab> l
 
+# Case insensitive search
+map global normal / /(?i)
+map global normal <a-/> <a-/>(?i)
+
 # Format selection with =
 map global normal = "|fmt -w $kak_opt_autowrap_column<ret>"
 
