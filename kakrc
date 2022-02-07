@@ -109,6 +109,33 @@ hook global NormalKey y %{ nop %sh{
 map global user P "!xsel --output --clipboard<ret>" -docstring "Paste before"
 map global user p "<a-!>xsel --output --clipboard<ret>" -docstring "Paste after"
 
+# Spell Check
+declare-user-mode spell
+define-command -hidden -params 0 _spell-replace %{
+    hook -always -once window ModeChange push:prompt:next-key\[user.spell\] %{
+        execute-keys <esc>
+    }
+    # hook -once -always window ModeChange pop:prompt:normal %{
+    #     echo -debug 'DEBUG: user-mode -lock spell hook called.'
+    #     enter-user-mode -lock spell
+    #     spell
+    # }
+    hook -once -always window NormalIdle .* %{
+        enter-user-mode -lock spell
+        spell
+    }
+    spell-replace
+}
+map global spell a ": spell-add; spell<ret>" -docstring "add to dictionary"
+map global spell r ": _spell-replace<ret>" -docstring "suggest replacements"
+map global spell n ": spell-next<ret>" -docstring "next misspelling"
+map global spell e ": set current spell_lang en_US; spell<ret>" -docstring "English check"
+map global normal <c-g> ": enter-user-mode -lock spell<ret>"
+
+hook global ModeChange push:[^:]*:next-key\[user.spell\] %{
+    hook -once -always window NormalIdle .* spell-clear
+}
+
 # Lint
 hook global BufWritePost .+\.(rb|js|es6) %{
     lint
