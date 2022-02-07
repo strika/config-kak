@@ -4,12 +4,13 @@ This is my configuration for [Kakoune](http://kakoune.org/) editor.
 
 ## Dependencies
 
-- Rust
+- [Aspell](http://aspell.net/)
+- [Rust](https://www.rust-lang.org/)
 
 On Ubuntu, install dependencies with:
 
 ```bash
-sudo apt install rustc
+sudo apt install aspell aspell-en rustc
 ```
 
 ## Setup
