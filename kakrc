@@ -62,7 +62,14 @@ plug "TeddyDD/kakoune-wiki" config %{
 
 # Highlighters
 add-highlighter global/ number-lines -relative
-add-highlighter global/ column 80 default,black
+
+hook global WinSetOption filetype=(ruby|javascript|markdown) %{
+  add-highlighter global/ column 80 default,black
+}
+
+hook global WinSetOption filetype=janet %{
+  add-highlighter global/ column 100 default,black
+}
 
 # Always keep one line and three columns displayed around the cursor.
 set-option global scrolloff 1,3
