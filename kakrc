@@ -30,8 +30,11 @@ plug "eraserhd/parinfer-rust" do %{
 plug "kkga/ui.kak" config %{
     map global user -docstring "UI mode" u ": enter-user-mode ui<ret>"
     hook global WinCreate .* %{
+        ui-git-diff-toggle
+        ui-lint-toggle
         ui-matching-toggle
         ui-search-toggle
+        ui-todos-toggle
     }
 }
 
