@@ -27,8 +27,6 @@ plug "eraserhd/parinfer-rust" do %{
     }
 }
 
-plug "godlygeek/tabular"
-
 plug "kkga/ui.kak" config %{
     map global user -docstring "UI mode" u ": enter-user-mode ui<ret>"
     hook global WinCreate .* %{
