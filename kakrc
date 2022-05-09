@@ -7,7 +7,7 @@ plug "andreyorst/fzf.kak" config %{
 } defer "fzf" %{
     set-option global fzf_use_main_selection false
 } defer "fzf-file" %{
-    set-option global fzf_file_command "find . \( -path './.*' -o -path './build*' \) -prune -false -o -type f -print"
+    set-option global fzf_file_command "find . \( -path './.*' -o -path './bin' -o -path './build*' -o -path './tmp' -o -path './node_modules' \) -prune -false -o -type f -print"
 }
 
 plug "andreyorst/smarttab.kak" defer smarttab %{
