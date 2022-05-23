@@ -19,6 +19,8 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
     hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|janet|sh|ruby|html|eruby) expandtab
 }
 
+plug "Delapouite/kakoune-text-objects"
+
 plug "eraserhd/parinfer-rust" do %{
     cargo install --force --path .
 } config %{
