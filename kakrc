@@ -29,6 +29,16 @@ plug "eraserhd/parinfer-rust" do %{
     }
 }
 
+plug "kak-lsp/kak-lsp" do %{
+    cargo install --locked --force --path .
+    mkdir -p ~/.config/kak-lsp
+    cp -n kak-lsp.toml ~/.config/kak-lsp/
+}
+
+hook global WinSetOption filetype=(ruby) %{
+    lsp-enable-window
+}
+
 plug "kkga/ui.kak" config %{
     map global user -docstring "UI mode" u ": enter-user-mode ui<ret>"
     hook global WinCreate .* %{
