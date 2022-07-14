@@ -16,7 +16,7 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
     set-option global indentwidth 2
 } config %{
     # These languages will use `expandtab' behavior.
-    hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|janet|sh|ruby|html|eruby) expandtab
+    hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|janet|javascript|sh|ruby|html|eruby) expandtab
 }
 
 plug "Delapouite/kakoune-text-objects"
