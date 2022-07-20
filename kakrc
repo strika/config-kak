@@ -35,7 +35,7 @@ plug "kak-lsp/kak-lsp" do %{
     cp -n kak-lsp.toml ~/.config/kak-lsp/
 }
 
-hook global WinSetOption filetype=(ruby) %{
+hook global WinSetOption filetype=(javascript|ruby) %{
     lsp-enable-window
 }
 
