@@ -16,7 +16,7 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
     set-option global indentwidth 2
 } config %{
     # These languages will use `expandtab' behavior.
-    hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|janet|javascript|sh|ruby|html|eruby) expandtab
+    hook global WinSetOption filetype=(fennel|rust|markdown|kak|lisp|scheme|janet|javascript|sh|ruby|html|eruby) expandtab
 }
 
 plug "Delapouite/kakoune-text-objects"
@@ -24,7 +24,7 @@ plug "Delapouite/kakoune-text-objects"
 plug "eraserhd/parinfer-rust" do %{
     cargo install --force --path .
 } config %{
-    hook global WinSetOption filetype=(clojure|lisp|scheme|racket|janet) %{
+    hook global WinSetOption filetype=(clojure|fennel|lisp|scheme|racket|janet) %{
         parinfer-enable-window -smart
     }
 }
