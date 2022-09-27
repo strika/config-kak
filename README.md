@@ -10,7 +10,7 @@ This is my configuration for [Kakoune](http://kakoune.org/) editor.
 On Ubuntu, install dependencies with:
 
 ```bash
-sudo apt install aspell aspell-en rustc
+sudo apt install aspell aspell-en rustc cargo
 ```
 
 ## Setup
