@@ -74,6 +74,9 @@ hook global WinSetOption filetype=janet %{
   add-highlighter global/ column 100 default,black
 }
 
+# Always reload files when changed externally.
+set-option global autoreload true
+
 # Always keep one line and three columns displayed around the cursor.
 set-option global scrolloff 1,3
 
