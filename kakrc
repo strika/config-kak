@@ -49,7 +49,13 @@ plug "occivink/kakoune-expand" config %{
   map global user E ": expand; enter-user-mode -lock expand<ret>" -docstring "expand ↻"
 }
 
-plug "occivink/kakoune-snippets" defer %{
+# Use a fork from CharlesGueunet until
+# https://github.com/occivink/kakoune-snippets/pull/47 is merged.
+# plug "occivink/kakoune-snippets" defer %{
+#   set-option global shippets_auto_expand true
+# }
+
+plug "CharlesGueunet/kakoune-snippets" branch "FixSpaceToPeriod" defer %{
   set-option global shippets_auto_expand true
 }
 
