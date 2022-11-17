@@ -70,7 +70,7 @@ hook global WinSetOption filetype=(ruby|javascript|markdown) %{
   add-highlighter global/ column 80 default,black
 }
 
-hook global WinSetOption filetype=janet %{
+hook global WinSetOption filetype=(janet|fennel) %{
   add-highlighter global/ column 100 default,black
 }
 
