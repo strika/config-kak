@@ -35,8 +35,6 @@ plug "eraserhd/parinfer-rust" do %{
     }
 }
 
-plug "icantjuddle/ayu-kak" theme
-
 plug "kkga/ui.kak" config %{
     map global user -docstring "UI mode" u ": enter-user-mode ui<ret>"
     hook global WinCreate .* %{
@@ -70,6 +68,8 @@ plug "occivink/kakoune-vertical-selection" config %{
 plug "TeddyDD/kakoune-wiki" config %{
   wiki-setup %sh{ echo $HOME/wiki }
 }
+
+colorscheme reeder
 
 # Highlighters
 add-highlighter global/ number-lines -relative
