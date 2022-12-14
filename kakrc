@@ -35,6 +35,8 @@ plug "eraserhd/parinfer-rust" do %{
     }
 }
 
+plug "icantjuddle/ayu-kak" theme
+
 plug "kkga/ui.kak" config %{
     map global user -docstring "UI mode" u ": enter-user-mode ui<ret>"
     hook global WinCreate .* %{
