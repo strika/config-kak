@@ -35,8 +35,6 @@ plug "eraserhd/parinfer-rust" do %{
     }
 }
 
-plug "caksoylar/kakoune-snow" theme %{ colorscheme snow-light }
-
 plug "kkga/ui.kak" config %{
     map global user -docstring "UI mode" u ": enter-user-mode ui<ret>"
     hook global WinCreate .* %{
