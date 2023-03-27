@@ -194,3 +194,8 @@ hook global WinSetOption filetype=(html|eruby) %{
     set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces 2 --wrap 1000 --show-body-only true 2>/dev/null || true; } && run"
     set-option window autowrap_column 80
 }
+
+# ChatGPT
+map global user -docstring "Replace selection with ChatGPT's answer" g '<a-|>tee /tmp/chatgpt.txt<ret>| cat /tmp/chatgpt.txt | chatgpt -x<ret>'
+map global user -docstring "Resample the last question with chatgpt" r '|cat /tmp/chatgpt.txt | chatgpt -x<ret>'
+map global user -docstring "Ask chatgpt about the selection" q '<a-|>(tee /tmp/chatgpt.txt; echo "\nWhat is this?" >> /tmp/chatgpt.txt)<ret>:info -title "chatgpt" "%sh{cat /tmp/chatgpt.txt | chatgpt -x}"<ret>'
