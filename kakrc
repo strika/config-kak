@@ -172,7 +172,7 @@ hook global ModeChange push:[^:]*:next-key\[user.spell\] %{
 }
 
 # Lint
-hook global BufWritePost .+\.(rb|js|es6) %{
+hook global BufWritePost .+\.(js|es6) %{
     lint
 }
 
