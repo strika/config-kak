@@ -205,7 +205,6 @@ hook global WinSetOption filetype=ruby %{
     set-option window lintcmd 'rubocop --config .rubocop.yml'
 
     lsp-enable-window
-    lsp-auto-hover-enable
 }
 
 # HTML and ERB
