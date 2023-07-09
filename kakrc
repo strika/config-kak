@@ -85,15 +85,18 @@ plug "TeddyDD/kakoune-wiki" config %{
   wiki-setup %sh{ echo $HOME/wiki }
 }
 
+# Cursor
+set-face global PrimaryCursor rgb:efefef,rgb:3e999f
+
 # Highlighters
 add-highlighter global/ number-lines -relative
 
 hook global WinSetOption filetype=(ruby|javascript|markdown) %{
-  add-highlighter global/ column 80 default,black
+  add-highlighter global/ column 80 default,rgb:d6d6d6
 }
 
 hook global WinSetOption filetype=(janet|fennel) %{
-  add-highlighter global/ column 100 default,black
+  add-highlighter global/ column 100 default,rgb:d6d6d6
 }
 
 # Always reload files when changed externally.
