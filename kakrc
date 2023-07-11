@@ -86,7 +86,7 @@ plug "TeddyDD/kakoune-wiki" config %{
 }
 
 # Cursor
-set-face global PrimaryCursor rgb:efefef,rgb:3e999f
+# set-face global PrimaryCursor rgb:efefef,rgb:3e999f
 
 # Highlighters
 add-highlighter global/ number-lines -relative
@@ -220,3 +220,5 @@ hook global WinSetOption filetype=(html|eruby) %{
 map global user -docstring "Replace selection with ChatGPT's answer" g '<a-|>tee /tmp/chatgpt.txt<ret>| cat /tmp/chatgpt.txt | chatgpt -x<ret>'
 map global user -docstring "Resample the last question with chatgpt" r '|cat /tmp/chatgpt.txt | chatgpt -x<ret>'
 map global user -docstring "Ask chatgpt about the selection" q '<a-|>(tee /tmp/chatgpt.txt; echo "\nWhat is this?" >> /tmp/chatgpt.txt)<ret>:info -title "chatgpt" "%sh{cat /tmp/chatgpt.txt | chatgpt -x}"<ret>'
+
+colorscheme snow
