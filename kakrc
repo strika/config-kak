@@ -175,7 +175,7 @@ hook global ModeChange push:[^:]*:next-key\[user.spell\] %{
 }
 
 # Lint
-hook global BufWritePost .+\.(js|es6) %{
+hook global BufWritePost .+\.(js|es6|eruby) %{
     lint
 }
 
@@ -200,7 +200,7 @@ hook global BufCreate .+\.(es6) %{
     set-option buffer filetype javascript
 }
 hook global WinSetOption filetype=javascript %{
-  set-option window lintcmd 'run() { cat "$1" | eslint -f unix --stdin --stdin-filename "$kak_buffile";} && run '
+    set-option window lintcmd 'run() { cat "$1" | eslint -f unix --stdin --stdin-filename "$kak_buffile";} && run '
 }
 
 # Ruby
@@ -208,6 +208,10 @@ hook global WinSetOption filetype=ruby %{
     lsp-enable-window
 
     set-option window lsp_completion_trigger %{ fail }
+}
+
+hook global WinSetOption filetype=eruby %{
+    set-option window lintcmd 'erblint --format compact'
 }
 
 # HTML and ERB
