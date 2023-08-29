@@ -25,6 +25,10 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
     }
 }
 
+plug "catppuccin/kakoune" theme config %{
+    colorscheme catppuccin_frappe
+}
+
 plug "Delapouite/kakoune-text-objects"
 
 plug "eraserhd/parinfer-rust" do %{
