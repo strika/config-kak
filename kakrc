@@ -25,6 +25,10 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
     }
 }
 
+plug "catppuccin/kakoune" theme config %{
+    colorscheme catppuccin_frappe
+}
+
 plug "Delapouite/kakoune-text-objects"
 
 plug "eraserhd/parinfer-rust" do %{
@@ -165,7 +169,7 @@ map global spell a ": spell-add; spell<ret>" -docstring "add to dictionary"
 map global spell r ": _spell-replace<ret>" -docstring "suggest replacements"
 map global spell n ": spell-next<ret>" -docstring "next misspelling"
 map global spell e ": set current spell_lang en_US; spell<ret>" -docstring "English check"
-map global normal <c-g> ": enter-user-mode -lock spell<ret>"
+map global user -docstring "Spell check" s ": enter-user-mode -lock spell<ret>"
 
 hook global ModeChange push:[^:]*:next-key\[user.spell\] %{
     hook -once -always window NormalIdle .* spell-clear
