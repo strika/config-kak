@@ -93,11 +93,11 @@ plug "TeddyDD/kakoune-wiki" config %{
 add-highlighter global/ number-lines -relative
 
 hook global WinSetOption filetype=(ruby|javascript|markdown) %{
-  add-highlighter global/ column 80 default,black
+  add-highlighter buffer/ column 80 default,black
 }
 
 hook global WinSetOption filetype=(janet|fennel) %{
-  add-highlighter global/ column 100 default,black
+  add-highlighter buffer/ column 100 default,black
 }
 
 # Always reload files when changed externally.
