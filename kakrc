@@ -201,7 +201,7 @@ hook global BufCreate .+\.(es6) %{
     set-option buffer filetype javascript
 }
 hook global WinSetOption filetype=javascript %{
-    set-option window lintcmd 'run() { cat "$1" | eslint -f unix --stdin --stdin-filename "$kak_buffile";} && run '
+    set-option window lintcmd 'standard'
 }
 
 # Ruby
