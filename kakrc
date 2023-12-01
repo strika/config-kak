@@ -225,3 +225,13 @@ hook global WinSetOption filetype=(html|eruby) %{
 map global user -docstring "Replace selection with ChatGPT's answer" g '<a-|>tee /tmp/chatgpt.txt<ret>| cat /tmp/chatgpt.txt | chatgpt -x<ret>'
 map global user -docstring "Resample the last question with chatgpt" r '|cat /tmp/chatgpt.txt | chatgpt -x<ret>'
 map global user -docstring "Ask chatgpt about the selection" q '<a-|>(tee /tmp/chatgpt.txt; echo "\nWhat is this?" >> /tmp/chatgpt.txt)<ret>:info -title "chatgpt" "%sh{cat /tmp/chatgpt.txt | chatgpt -x}"<ret>'
+
+def run-test \
+  -override \
+  -docstring "Run the current test file." \
+%{
+  set-register | %sh{ dip rspec $(realpath --relative-to="$PWD" "$kak_buffile") }
+  edit -scratch *run-test-output*
+  exec 'geA<ret><esc>"|p;'
+}
+
