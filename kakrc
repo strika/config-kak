@@ -157,6 +157,7 @@ hook global WinSetOption filetype=(git-commit|markdown) %{
     skyspell-enable en_US
 }
 
+declare-user-mode skyspell
 map global user s ": enter-user-mode skyspell<ret>" -docstring "Enter spell user mode"
 map global skyspell d ": skyspell-disable<ret>" -docstring "Clear spelling highlighters"
 map global skyspell e ": skyspell-enable en_US<ret>" -docstring "Enable spell checking in English"
