@@ -175,6 +175,15 @@ hook global ModeChange push:[^:]*:next-key\[user.spell\] %{
     hook -once -always window NormalIdle .* spell-clear
 }
 
+# Skyspell
+evaluate-commands %sh{
+    skyspell-kak init
+}
+
+hook global WinSetOption filetype=(git-commit|markdown) %{
+    skyspell-enable en_US
+}
+
 # Lint
 hook global BufWritePost .+\.(js|es6|eruby) %{
     lint
