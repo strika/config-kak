@@ -157,6 +157,15 @@ hook global WinSetOption filetype=(git-commit|markdown) %{
     skyspell-enable en_US
 }
 
+map global user s ": enter-user-mode skyspell<ret>" -docstring "Enter spell user mode"
+map global skyspell d ": skyspell-disable<ret>" -docstring "Clear spelling highlighters"
+map global skyspell e ": skyspell-enable en_US<ret>" -docstring "Enable spell checking in English"
+map global skyspell l ": skyspell-list <ret>" -docstring "List spelling errors in a buffer"
+map global skyspell h ": skyspell-help <ret>" -docstring "Show help message"
+map global skyspell n ": skyspell-next<ret>" -docstring "Go to next spell error"
+map global skyspell p ": skyspell-previous<ret>" -docstring "Go to previous spell error"
+map global skyspell r ": skyspell-replace<ret>" -docstring "Suggest a list of replacements"
+
 # Lint
 hook global BufWritePost .+\.(js|es6|eruby) %{
     lint
