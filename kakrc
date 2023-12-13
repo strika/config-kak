@@ -153,7 +153,7 @@ evaluate-commands %sh{
     skyspell-kak init
 }
 
-hook global WinSetOption filetype=(git-commit|markdown) %{
+hook global WinSetOption filetype=(git-commit) %{
     skyspell-enable en_US
 }
 
