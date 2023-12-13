@@ -153,10 +153,6 @@ evaluate-commands %sh{
     skyspell-kak init
 }
 
-hook global WinSetOption filetype=(git-commit) %{
-    skyspell-enable en_US
-}
-
 declare-user-mode skyspell
 map global user s ": enter-user-mode skyspell<ret>" -docstring "Enter spell user mode"
 map global skyspell d ": skyspell-disable<ret>" -docstring "Clear spelling highlighters"
