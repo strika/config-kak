@@ -106,6 +106,8 @@ set-option global autoreload true
 # Always keep one line and three columns displayed around the cursor.
 set-option global scrolloff 1,3
 
+set-option global windowing_placement horizontal
+
 # Easier navigation for Colemak keyboard layout.
 map global normal <backspace> h
 map global normal <c-h> h
