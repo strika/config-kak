@@ -199,6 +199,7 @@ hook global WinSetOption filetype=ruby %{
     lsp-enable-window
 
     set-option window lsp_completion_trigger %{ fail }
+    set-option window lintcmd 'standardrb'
 }
 
 hook global WinSetOption filetype=eruby %{
