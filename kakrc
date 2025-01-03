@@ -45,6 +45,7 @@ plug "kak-lsp/kak-lsp" do %{
     mkdir -p ~/.config/kak-lsp
     cp -n kak-lsp.toml ~/.config/kak-lsp/
 } config %{
+    # set g lsp_debug true
     map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
     map global insert <tab> "<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>" -docstring "Select next snippet placeholder"
     map global object a "<a-semicolon>lsp-object<ret>" -docstring "LSP any symbol"
@@ -198,12 +199,11 @@ hook global WinSetOption filetype=javascript %{
 hook global WinSetOption filetype=ruby %{
     lsp-enable-window
 
-    set-option window lsp_completion_trigger %{ fail }
     set-option window lintcmd 'standardrb'
 }
 
 hook global WinSetOption filetype=eruby %{
-    set-option window lintcmd 'erblint --format compact'
+    set-option window lintcmd 'erb_lint  --format compact'
 }
 
 # HTML and ERB
