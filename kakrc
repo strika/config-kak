@@ -94,7 +94,7 @@ plug "TeddyDD/kakoune-wiki" config %{
 add-highlighter global/ number-lines -relative
 
 hook global WinSetOption filetype=(ruby|javascript|markdown) %{
-  add-highlighter buffer/ column 80 default,black
+  add-highlighter buffer/ column 100 default,black
 }
 
 hook global WinSetOption filetype=(janet|fennel) %{
@@ -121,6 +121,7 @@ map global normal / /(?i)
 map global normal <a-/> <a-/>(?i)
 
 # Format selection with =
+set-option global autowrap_column 100
 map global normal = "|fmt -w $kak_opt_autowrap_column<ret>"
 
 # Split horizontally
@@ -209,7 +210,6 @@ hook global WinSetOption filetype=eruby %{
 # HTML and ERB
 hook global WinSetOption filetype=(html|eruby) %{
     set-option buffer formatcmd "run(){ tidy -q --indent yes --indent-spaces 2 --wrap 1000 --show-body-only true 2>/dev/null || true; } && run"
-    set-option window autowrap_column 80
 }
 
 # ChatGPT
