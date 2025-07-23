@@ -76,10 +76,6 @@ plug "occivink/kakoune-expand" config %{
   map global user E ": expand; enter-user-mode -lock expand<ret>" -docstring "expand ↻"
 }
 
-plug "occivink/kakoune-snippets" commit "9c96e64a567ae5cb16d47cf9d3a56189f77c430c" defer %{
-  set-option global shippets_auto_expand true
-}
-
 plug "occivink/kakoune-vertical-selection" config %{
   map global user v     ": vertical-selection-down<ret>"        -docstring "Select down"
   map global user <a-v> ": vertical-selection-up<ret>"          -docstring "Select up"
